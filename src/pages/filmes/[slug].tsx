@@ -26,7 +26,7 @@ export default function filme(props: FilmeProps) {
     return (
         <>
         <div className={styles.videoContainer}>
-            <video src={filme.url}  autoPlay controls muted>
+            <video src={filme.url}  autoPlay controls >
             </video>
             <h1>{filme.titulo}</h1>
             <span> {filme.viewers.toLocaleString("ru")} visualizações - </span>
@@ -54,7 +54,7 @@ export default function filme(props: FilmeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const { data } = await api.get('filmes', {
+    const { data } = await api.get('/', {
         params: {
           _sort: 'lancamento',
           _order: 'desc'
@@ -76,12 +76,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params;
-    const { data } = await api.get('filmes', {
-        params: {
-          _sort: 'lancamento',
-          _order: 'desc'
-        }
-      })
+    const { data } = await api.get('/', {
+      params: {
+        _sort: 'lancamento',
+        _order: 'desc'
+      }
+    })
 
       const selecionado = data.find( filme => filme.id === slug );
       const resultado = data.splice(data.indexOf(selecionado), 1)[0];

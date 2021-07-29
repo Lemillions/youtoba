@@ -60,7 +60,7 @@ export default function Home(props: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('filmes', {
+  const { data } = await api.get('/', {
     params: {
       _sort: 'lancamento',
       _order: 'desc'
