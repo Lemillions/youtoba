@@ -1,0 +1,36 @@
+.adicionarContainer{
+    text-align: center;
+    font-weight: bold;
+    margin: 3rem auto;
+    width: 500px;
+    border-radius: 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.407);
+    padding: 1rem 1rem;
+
+    h1{
+        padding: 1rem;
+        text-align: center;
+    }
+    input{
+        height: 3rem;
+        width: 400px;
+        padding: 0.1rem 0.5rem;
+        color:white;
+        background-color: #111;
+        border: none;
+        border-bottom: #1a73e8 1px solid;
+        outline: none;
+    }
+    button{
+        margin-top: 1rem;
+        font-weight: bold;
+        font-size: 2rem;
+        width: 14rem;
+        height: 5rem;
+        border: none;
+        background-color: #1a73e8;
+        color:white;
+        border-radius: 8px;
+        
+    }
+}

@@ -7,6 +7,9 @@ export function Header(){
             <Link href="../">
             <img src='/youtoba.png' alt='logo'/>
             </Link>
+            <Link href="../adicionar">
+            <a>ADICIONAR</a>
+            </Link>
         </header>
     )
 }
