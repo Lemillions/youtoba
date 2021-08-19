@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import SideBar from '../SideBar';
 
 export function Header(){
     return(
+        <>
         <header className={styles.header}>
-            <Link href="../">
-            <img src='/youtoba.png' alt='logo'/>
-            </Link>
-            <Link href="../adicionar">
-            <a>ADICIONAR</a>
+            <SideBar/>
+            <Link href="https://youtoba.vercel.app">
+                <img src='/youtoba.png' alt='logo' className={styles.logo}/>
             </Link>
         </header>
+        </>
     )
 }
+
