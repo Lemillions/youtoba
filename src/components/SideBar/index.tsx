@@ -21,7 +21,7 @@ export default function sideBar(){
             </button></li>
             
             <li><a href="https://youtoba.vercel.app" className={styles.menuItem}>
-                ADICIONAR
+                INICIO
             </a></li>
 
             <li><a href="https://youtoba.vercel.app/adicionar" className={styles.menuItem}>
