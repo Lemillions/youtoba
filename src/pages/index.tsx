@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import Link  from 'next/link'
-import { api } from '../services/api'
+import axios from 'axios'
 import styles from './home.module.scss'
 
 type Filme = {
@@ -60,12 +60,7 @@ export default function Home(props: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('/', {
-    params: {
-      _sort: 'lancamento',
-      _order: 'desc'
-    }
-  })
+  const { data } = await axios.get('https://filmes.mvsantos2003.repl.co')
 
 
   const filmes = data.map(filme =>{

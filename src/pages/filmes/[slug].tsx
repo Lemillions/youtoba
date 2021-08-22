@@ -1,6 +1,6 @@
+import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link"
-import { api } from "../../services/api";
 import styles from "./styles.module.scss"
 
 type Filme = {
@@ -54,12 +54,7 @@ export default function filme(props: FilmeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const { data } = await api.get('/', {
-        params: {
-          _sort: 'lancamento',
-          _order: 'desc'
-        }
-    })
+  const { data } = await axios.get('https://filmes.mvsantos2003.repl.co')
 
     const paths = data.map( filme => {
         return {
@@ -76,12 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const { slug } = ctx.params;
-    const { data } = await api.get('/', {
-      params: {
-        _sort: 'lancamento',
-        _order: 'desc'
-      }
-    })
+    const { data } = await axios.get('https://filmes.mvsantos2003.repl.co')
 
       const selecionado = data.find( filme => filme.id === slug );
       const resultado = data.splice(data.indexOf(selecionado), 1)[0];

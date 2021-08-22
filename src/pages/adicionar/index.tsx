@@ -5,15 +5,15 @@ import styles from './styles.module.scss';
 export default function adicionar(){
     interface Filme {
         id: string
-        titulo: String
-        genero: String
-        lancamento: String
-        capa: String
-        descricao: String
-        viewers: Number
-        url: String
-        tipo: String 
-        duracao: Number           
+        titulo: string
+        genero: string
+        lancamento: string
+        capa: string
+        descricao: string
+        viewers: number
+        url: string
+        tipo: string 
+        duracao: number           
     }
     const [novoFilme, setNovoFilme] = useState({
         id:"",
@@ -27,7 +27,7 @@ export default function adicionar(){
         tipo: '',
         duracao: 0,
     })
-
+    const [formPreenchido, setFormPreenchido] = useState(true)
     const handleForm = (e) =>{
             setNovoFilme({
                 ...novoFilme,
@@ -35,7 +35,7 @@ export default function adicionar(){
             });
     }
 
-    const adicionarNovoFilme = (novoFilme: Filme) =>{
+    const adicionarNovoFilme = (novoFilme:Filme) =>{
         const data = {
             id:novoFilme.id,
             titulo:novoFilme.titulo,
@@ -45,19 +45,22 @@ export default function adicionar(){
             descricao:novoFilme.descricao,
             viewers:novoFilme.viewers,
             file:{
-                url:novoFilme.url,
+                url: novoFilme.url,
                 tipo:novoFilme.tipo,
-                duracao:novoFilme.duracao
+                duracao: novoFilme.duracao
         }
         }
-        axios.post('https://filmes.mvsantos2003.repl.co', data)
-          .then(function (response) {
-            console.log(response);
+        if(data.id == '' || data.titulo == '' || data.genero == '' || data.lancamento == '' || data.capa == '' || data.descricao == '' || data.file.url == '' || data.file.tipo == '' || data.file.duracao == 0){
+            setFormPreenchido(false)
+        }else {
+            setFormPreenchido(true)
+            axios.post('https://filmes.mvsantos2003.repl.co', data)
+            .then(function (response) {
+            console.log(response)
           })
           .catch(function (error) {
-            console.log(error);
+            console.log(error)
           });
-
           setNovoFilme({
             id:"",
             titulo:"",
@@ -70,10 +73,10 @@ export default function adicionar(){
             tipo: '',
             duracao: 0,
         })
-        window.alert('Filme Adicionado com Sucesso. ps: esta aparecendo aqui por que to com preguiça de fazer um alerta :P')
+        }
     }
     return (
-    <div  className={styles.adicionarContainer}>
+    <div className={styles.adicionarContainer}>
         <h1>YOUTUBA</h1>
         <input type="text" value={novoFilme.id} onChange={(e)=>{handleForm(e)}} name="id" placeholder="ID" /><br/>
         <input type="text" value={novoFilme.titulo}  onChange={(e)=>{handleForm(e)}} name="titulo" placeholder="Titulo do Filme"/><br/>
@@ -85,7 +88,8 @@ export default function adicionar(){
         <input type="text" value={novoFilme.url}  onChange={(e)=>{handleForm(e)}} name="url" placeholder="URL do Video"/><br/>
         <input type="text" value={novoFilme.tipo} onChange={(e)=>{handleForm(e)}} name="tipo" placeholder="video/Tipo"/><br/>
         <input type="text" value={novoFilme.duracao} pattern="[0-9]" onChange={(e)=>{handleForm(e)}} name="duracao" placeholder="Duração do Filme em Segundos"/><br/>
-        <button onClick={()=>adicionarNovoFilme(novoFilme)}>ADICIONAR</button>
+        <button onClick={()=>adicionarNovoFilme(novoFilme)}>ADICIONAR</button><br/>
+        {!formPreenchido? <div className={styles.avisoForm}>Não foi possivel adicionar o filme, verifique se todos os dados estao preenchido corretamente</div> : ''}
     </div>
     )
 }

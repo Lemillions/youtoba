@@ -19,6 +19,10 @@ export default function sideBar(){
                 <button className={styles.botao} onClick={()=>{toogleSideBar()}}>
                 <img src='/iconExcluir.png'/>
             </button></li>
+            
+            <li><a href="https://youtoba.vercel.app" className={styles.menuItem}>
+                ADICIONAR
+            </a></li>
 
             <li><a href="https://youtoba.vercel.app/adicionar" className={styles.menuItem}>
                 ADICIONAR
