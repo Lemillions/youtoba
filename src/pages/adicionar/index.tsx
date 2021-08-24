@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react"
+import React, { useState } from "react"
 import styles from './styles.module.scss';
+import {Helmet} from "react-helmet";
 
 export default function adicionar(){
     interface Filme {
@@ -77,6 +78,9 @@ export default function adicionar(){
     }
     return (
     <div className={styles.adicionarContainer}>
+        <Helmet>
+            <title>Adicionar - YouToba</title>
+        </Helmet>
         <h1>YOUTUBA</h1>
         <input type="text" value={novoFilme.id} onChange={(e)=>{handleForm(e)}} name="id" placeholder="ID" /><br/>
         <input type="text" value={novoFilme.titulo}  onChange={(e)=>{handleForm(e)}} name="titulo" placeholder="Titulo do Filme"/><br/>

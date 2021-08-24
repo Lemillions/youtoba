@@ -8,6 +8,7 @@ export default class MyDocuments extends Document {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet" />
+        <link rel="shortcut icon" href="https://i.ibb.co/61rLh3j/logo.png" type="image/png" />
         </Head>
         <body>
             <Main />

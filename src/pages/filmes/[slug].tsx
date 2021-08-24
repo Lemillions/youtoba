@@ -2,6 +2,7 @@ import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link"
 import styles from "./styles.module.scss"
+import {Helmet} from "react-helmet";
 
 type Filme = {
     id: string;
@@ -25,6 +26,9 @@ export default function filme(props: FilmeProps) {
     const listaFilmes = props.listaFilmes;
     return (
         <>
+        <Helmet>
+          <title>{filme.titulo}</title>
+        </Helmet>
         <div className={styles.videoContainer}>
             <video src={filme.url}  autoPlay controls >
             </video>
