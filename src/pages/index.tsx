@@ -21,7 +21,18 @@ type HomeProps = {
 }
 
 export default function Home(props: HomeProps) {
+
   const filmes = props.filmes;
+  
+  filmes.sort(function (a, b) {
+    if (a.lancamento < b.lancamento) {
+      return 1;
+    }
+    if (a.lancamento > b.lancamento) {
+      return -1;
+    }
+    return 0;
+  });
   
   return (
     <div className={styles.Home}>

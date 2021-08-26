@@ -31,4 +31,29 @@
         text-decoration: none;
         padding:0 1rem;
     }
+
+    input{
+        padding: 0.5rem;
+        border: rgb(62, 58, 58) 1px solid;
+        height: 2rem;
+        width: 30rem;
+        margin-left: 10rem;
+        outline: none;
+        background-color: #222222;
+        color: white;
+    }
+    input:focus{
+        border: blue 1px solid;
+    }
+    .query{
+        background-color: #222222;
+        border: rgb(62, 58, 58) 1px solid;
+        height: 2rem;
+        outline: none;
+        cursor: pointer;
+        img{
+            margin-top: 1px;
+        }
+    }
+    
 }

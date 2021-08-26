@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react"
-import styles from './styles.module.scss';
-import {Helmet} from "react-helmet";
+import styles from './styles.module.scss'
+import {Helmet} from "react-helmet"
 
 export default function adicionar(){
     interface Filme {

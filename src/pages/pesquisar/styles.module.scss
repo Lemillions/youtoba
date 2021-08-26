@@ -1,4 +1,4 @@
-.Home{
+.pesquisa{
     padding: 1rem 4rem;
     
 
@@ -20,7 +20,7 @@
         }
     }
 }
-.ultimosLancamentos{
+.listaPesquisa{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 0.8rem;
