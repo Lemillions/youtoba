@@ -30,8 +30,7 @@ export default function filme(props: FilmeProps) {
           <title>{filme.titulo}</title>
         </Helmet>
         <div className={styles.videoContainer}>
-            <video src={filme.url}  autoPlay controls >
-            </video>
+            <iframe src={filme.url} frameBorder="0" allowFullScreen></iframe>
             <h1>{filme.titulo}</h1>
             <span> {filme.viewers.toLocaleString("ru")} visualizações - </span>
             <span> {filme.lancamento} </span>
