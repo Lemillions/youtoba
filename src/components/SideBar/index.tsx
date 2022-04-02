@@ -38,11 +38,3 @@ export default function sideBar(){
         </div>
     )
 }
-
-function abrirSideBar() {
-    throw new Error('Function not implemented.');
-}
-function fecharSideBar() {
-    throw new Error('Function not implemented.');
-}
-
